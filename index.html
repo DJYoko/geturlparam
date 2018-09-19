@@ -11,8 +11,7 @@
 	<!-- Latest compiled and minified CSS -->
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
+	<script src="getUrlParam.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<!--[if lt IE 9]>
@@ -30,7 +29,7 @@
 		<h1>get URL parameters from URL</h1>
 		<div class="">
 			<p>input some URL to get parameters.</p>
-			<input type="text" class="form-control" name="url">
+			<input type="text" class="form-control" name="url" onkeyup="getUrlParam(this.value)">
 		</div>
 		<div>
 			<p>result</p>
