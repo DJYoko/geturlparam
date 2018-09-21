@@ -41,15 +41,17 @@
 			border: 1px solid #eee;
 			border-radius: 4px;
 			min-height: 40px;
+			padding: 12px;
 		}
 
 	</style>
 	<script>
 		$(function() {
 			$('input[name="url"]').on('keyup', function() {
-				const $this = $('this');
+				const $this = $(this);
 				const this_value = $this.val();
 				const url_param = getUrlParam(this_value);
+				//console.log(JSON.stringify(url_param, null, 4))
 				$('#result').html(JSON.stringify(url_param, null, 4));
 			});
 		});

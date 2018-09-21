@@ -2,14 +2,19 @@
 
 function getUrlParam(url) {
 	'use strict';
-	var return_json = {};
+	let return_json = {};
 
 	if (typeof url !== 'string' || url.match(/\?/g) === null) {
 		return return_json;
 	}
 
-	var query_part = url.split('?')[1];
-	var query_array = query_part.split('&');
-
-	console.log(query_array);
+	const query_array = url.split('?')[1].split('&');
+	let i = 0;
+	while (i < query_array.length) {
+		const key = query_array[i].split('=')[0];
+		const value = query_array[i].split('=')[1];
+		return_json[key] = value;
+		i++;
+	}
+	return return_json;
 }
