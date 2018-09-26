@@ -13,7 +13,15 @@ function getUrlParam(url) {
 	while (i < query_array.length) {
 		const key = query_array[i].split('=')[0];
 		const value = query_array[i].split('=')[1];
-		return_json[key] = value;
+		if (key.match(/\[\]/g) !== null) {
+			if (typeof return_json[key] === 'undefined') {
+				return_json[key] = []
+			}
+			return_json[key].push(value)
+		} else {
+			return_json[key] = value;
+		}
+
 		i++;
 	}
 	return return_json;
