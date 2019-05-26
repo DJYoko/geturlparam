@@ -8,7 +8,8 @@
   },
   "scripts": {
      "tsc": "tsc",
-     "build": "webpack"
+     "build": "webpack",
+     "start": "webpack --watch"
   },
   "repository": {
     "type": "git",
