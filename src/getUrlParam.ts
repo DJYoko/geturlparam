@@ -1,11 +1,9 @@
+import Dictionary from './interface/Dictionary';
+
 interface Window { getUrlParam(message: string): void; }
 declare var window: Window;
 
-interface Dictionary {
-    [key: string]: any
-}
-
-window.getUrlParam = (url: string) => {
+window.getUrlParam = function (url: string): Object {
     'use strict';
     let return_json: Dictionary = {};
 
@@ -21,7 +19,7 @@ window.getUrlParam = (url: string) => {
         if (key.match(/\[\]/g) !== null) {
             const insert_destination = return_json[key];
             if (typeof return_json[key] !== 'object') {
-                return_json[key] = []
+                return_json[key] = [];
             }
             return_json[key].push(value);
         } else {
