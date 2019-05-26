@@ -1,28 +1,101 @@
-/*global console*/
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/getUrlParam.ts");
+/******/ })
+/************************************************************************/
+/******/ ({
 
-function getUrlParam(url) {
-	'use strict';
-	let return_json = {};
+/***/ "./src/getUrlParam.ts":
+/*!****************************!*\
+  !*** ./src/getUrlParam.ts ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-	if (typeof url !== 'string' || url.match(/\?/g) === null) {
-		return return_json;
-	}
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nwindow.getUrlParam = function (url) {\r\n    'use strict';\r\n    var return_json = {};\r\n    if (typeof url !== 'string' || url.match(/\\?/g) === null) {\r\n        return return_json;\r\n    }\r\n    var query_array = url.split('?')[1].split('&');\r\n    query_array.forEach(function (item) {\r\n        var key = item.split('=')[0];\r\n        var value = item.split('=')[1];\r\n        if (key.match(/\\[\\]/g) !== null) {\r\n            var insert_destination = return_json[key];\r\n            if (typeof return_json[key] !== 'object') {\r\n                return_json[key] = [];\r\n            }\r\n            return_json[key].push(value);\r\n        }\r\n        else {\r\n            return_json[key] = value;\r\n        }\r\n    });\r\n    return return_json;\r\n};\r\n\n\n//# sourceURL=webpack:///./src/getUrlParam.ts?");
 
-	const query_array = url.split('?')[1].split('&');
-	let i = 0;
-	while (i < query_array.length) {
-		const key = query_array[i].split('=')[0];
-		const value = query_array[i].split('=')[1];
-		if (key.match(/\[\]/g) !== null) {
-			if (typeof return_json[key] === 'undefined') {
-				return_json[key] = []
-			}
-			return_json[key].push(value)
-		} else {
-			return_json[key] = value;
-		}
+/***/ })
 
-		i++;
-	}
-	return return_json;
-}
+/******/ });
