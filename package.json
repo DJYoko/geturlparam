@@ -1,0 +1,29 @@
+{
+  "name": "geturlparam",
+  "version": "1.0.0",
+  "description": "a simple script for get query parameters from URL.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+     "tsc": "tsc",
+     "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DJYoko/geturlparam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DJYoko/geturlparam/issues"
+  },
+  "homepage": "https://github.com/DJYoko/geturlparam#readme",
+  "devDependencies": {
+    "ts-loader": "^6.0.1",
+    "typescript": "^3.4.5",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2"
+  }
+}
