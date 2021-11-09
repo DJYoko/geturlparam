@@ -15,7 +15,7 @@ window.getUrlParam = function (url: string): Object {
 
     query_array.forEach((item)=>{
         const key = item.split('=')[0];
-        const value = item.replace(key + '=', '');
+        const value = item.replace(key + '=', '').split('#')[0];
         if (key.match(/\[\]/g) !== null) {
             const insert_destination = return_json[key];
             if (typeof return_json[key] !== 'object') {
